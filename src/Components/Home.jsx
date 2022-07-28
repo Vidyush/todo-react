@@ -12,11 +12,16 @@ const Home = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setTasks([...tasks, { title, description }]);
-    setTitle("");
-    setDescription("");
-  };
-
+    let temptask = tasks.find(c=>c.title === title)
+      if(temptask)
+        alert("cannot enter tassk")
+      else{
+        setTasks([...tasks, { title, description }]);
+        setTitle("");
+        setDescription("");
+      }
+    }
+  
   const deleteTask = (index) => {
     const filteredArr = tasks.filter((val, i) => {
       return i !== index;
